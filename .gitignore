@@ -22,3 +22,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 timeago.js@4.0.0-beta.3
+node_modules/@material-ui/icons
