@@ -4,7 +4,6 @@ import birthday from "../assets/presentBirthday.png";
 import { Users } from "../dummyData.js";
 import Online from "./Online.jsx";
 import { Link } from 'react-router-dom';
-import { Add, Remove } from "@material-ui/icons";
 import { AuthContext } from "../context/AuthContext";
 import axios from '../utils/client.js';
 
@@ -78,8 +77,17 @@ export default function Rightbar({ user }) {
             <>
                 {user.username !== currentUser.username && (
                     <button className={styles.rightbarFollowButton} onClick={handleClick}>
-                        {followed ? "Unfollow" : "Follow"}
-                        {followed ? <Remove /> : <Add />}
+                        {followed ? (
+                            <>
+                                Unfollow
+                                <span role="img" aria-label="remove">❌</span>  {/* Replace Remove icon */}
+                            </>
+                        ) : (
+                            <>
+                                Follow
+                                <span role="img" aria-label="add">➕</span>  {/* Replace Add icon */}
+                            </>
+                        )}
                     </button>
                 )}
                 <h4 className={styles.rightbarTitle}>User information:</h4>
