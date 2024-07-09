@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from "../styles/topbar.module.css";
-import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import { FaSearch, FaUser, FaComment, FaBell } from 'react-icons/fa';  // Import alternative icons
 import { Link } from "react-router-dom"
-import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 
 export default function Topbar() {
-
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
     return (
         <div className={styles.topbarContainer}>
             <div className={styles.topbarLeft}>
@@ -18,7 +17,7 @@ export default function Topbar() {
             </div>
             <div className={styles.topbarCenter}>
                 <div className={styles.searchBar}>
-                    <Search className={styles.searchIcon} />
+                    <FaSearch className={styles.searchIcon} />  {/* Search Icon */}
                     <input placeholder="Share your Thoughts !!" className={styles.searchInput} />
                 </div>
             </div>
@@ -35,16 +34,16 @@ export default function Topbar() {
                 <div className={styles.topbarIcons}>
                     <div className={styles.topbarIconItem}>
                         <Link to={`/profile/${user.username}`} style={{ textDecoration: "none" }}>
-                            <Person />
+                            <FaUser className={styles.topbarIcon} />  {/* Person Icon */}
                             <span className={styles.topbarIconBadge}></span>
                         </Link>
                     </div>
                     <div className={styles.topbarIconItem}>
-                        <Chat />
+                        <FaComment className={styles.topbarIcon} />  {/* Chat Icon */}
                         <span className={styles.topbarIconBadge}></span>
                     </div>
                     <div className={styles.topbarIconItem}>
-                        <Notifications />
+                        <FaBell className={styles.topbarIcon} />  {/* Notifications Icon */}
                         <span className={styles.topbarIconBadge}></span>
                     </div>
                 </div>
@@ -52,6 +51,6 @@ export default function Topbar() {
                     <img src={user.profilePicture ? PF + user.profilePicture : PF + "blank-profile-picture.png"} alt="" className={styles.topbarImg} />
                 </Link>
             </div>
-        </div >
+        </div>
     )
 }
