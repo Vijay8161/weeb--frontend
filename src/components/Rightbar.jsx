@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "../styles/rightbar.module.css";
 import birthday from "../assets/presentBirthday.png";
-import adOne from "../assets/advertisement.jpg";
 import { Users } from "../dummyData.js";
 import Online from "./Online.jsx";
 import { Link } from 'react-router-dom';
@@ -64,7 +63,6 @@ export default function Rightbar({ user }) {
                     </span>
                 </div>
 
-                <img className={styles.rightbarAd} src={adOne} alt="" />
                 <h4 className={styles.rightbarTitle}>Online Friends:</h4>
                 <ul className={styles.onlineFriendList}>
                     {Users.map((u) => (

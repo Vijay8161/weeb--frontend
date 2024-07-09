@@ -3,7 +3,6 @@ import styles from "../styles/post.module.css";
 import { MoreVert } from "@material-ui/icons";
 import axios from '../utils/client.js';
 import likeIcon from "../assets/likeIcon.png";
-import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
 
@@ -48,6 +47,16 @@ export default function Post({ post }) {
         }
     };
 
+    const formatDate = (date) => {
+        return new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }).format(new Date(date));
+    };
+
     return (
         <div className={styles.post}>
             <div className={styles.postWrapper}>
@@ -61,7 +70,7 @@ export default function Post({ post }) {
                             />
                         </Link>
                         <span className={styles.postUsername}>{user.username}</span>
-                        <span className={styles.postDate}>{format(post.createdAt)}</span>
+                        <span className={styles.postDate}>{formatDate(post.createdAt)}</span>
                     </div>
                     <div className={styles.postTopRight}>
                         <MoreVert />
