@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from "../styles/post.module.css";
-import { MoreVert } from "@material-ui/icons";
 import axios from '../utils/client.js';
 import likeIcon from "../assets/likeIcon.png";
 import { Link } from "react-router-dom";
@@ -71,9 +70,6 @@ export default function Post({ post }) {
                         </Link>
                         <span className={styles.postUsername}>{user.username}</span>
                         <span className={styles.postDate}>{formatDate(post.createdAt)}</span>
-                    </div>
-                    <div className={styles.postTopRight}>
-                        <MoreVert />
                     </div>
                 </div>
                 <div className={styles.postCenter}>
